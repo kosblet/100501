@@ -1,25 +1,33 @@
-from typing import List, Dict
-from datetime import datetime
+from typing import Any
 
-def filter_by_state(operations: List[Dict], state: str = 'EXECUTED') -> List[Dict]:
-    """
-     Фильтрует список операционных словарей по заданному состоянию.
+def filter_by_state(list_of_dicts: list[Any], state: str = "EXECUTED") -> list[Any]:
+    correct_list = []
+    for num_dict in range(len(list_of_dicts)):
+        if list_of_dicts[num_dict]["state"] == state:
+            correct_list.append(list_of_dicts[num_dict])
+    return correct_list
 
-        operations (List[Dict]): Список операционных словарей.
-        state (str): Государство, по которому будет отфильтровываться. По умолчанию - EXECUTED.
-        List[Dict]: Фильтрованный список операционных словарей.
-    """
-    return [op for op in operations if op.get('state') == state]
+def sort_by_date(list_of_dicts: list[Any], sorting_direct: bool = True) -> list[Any]:
+    return sorted(list_of_dicts, key=lambda x: x.get("date"), reverse=sorting_direct)
 
-def sort_by_date(operations: List[Dict], descending: bool = True) -> List[Dict]:
-    """
-    Сортирует список операционных словарей по дате.
-
-        operations (List[Dict]): Список операционных словарей.
-        descending (bool): порядок сортировки. По умолчанию - True (descending).
-
-        List[Dict]: Сортированный список операционных словарей.
-    """
-    return sorted(operations, key=lambda x: datetime.fromisoformat(x['date']), reverse=descending)
-
-
+# Примеры использования функций
+print(
+    filter_by_state(
+        [
+            {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+            {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+            {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+            {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+        ]
+    )
+)
+print(
+    sort_by_date(
+        [
+            {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+            {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+            {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+            {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+        ]
+    )
+)
