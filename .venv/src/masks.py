@@ -14,3 +14,4 @@ def get_mask_account(num_card: Union[int, str]) -> str:
     account_number_start = num_card.rfind(' ') + 1
     mask_account = num_card[:account_number_start] + "**" + num_card[-4:]
     return mask_account
+

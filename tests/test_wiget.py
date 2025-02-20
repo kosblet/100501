@@ -14,3 +14,4 @@ def test_account():
 def test_with_fixture(test_account):
     assert test_account == mask_account_card("Счет 73654108430135874305")
 
+
