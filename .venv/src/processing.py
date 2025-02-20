@@ -3,26 +3,23 @@ from datetime import datetime
 
 def filter_by_state(operations: List[Dict], state: str = 'EXECUTED') -> List[Dict]:
     """
-    Filters the list of operations dictionaries by the given state.
+     Фильтрует список операционных словарей по заданному состоянию.
 
-    Args:
-        operations (List[Dict]): List of operation dictionaries.
-        state (str): The state to filter by. Default is 'EXECUTED'.
-
-    Returns:
-        List[Dict]: Filtered list of operation dictionaries.
+        operations (List[Dict]): Список операционных словарей.
+        state (str): Государство, по которому будет отфильтровываться. По умолчанию - EXECUTED.
+        List[Dict]: Фильтрованный список операционных словарей.
     """
     return [op for op in operations if op.get('state') == state]
 
 def sort_by_date(operations: List[Dict], descending: bool = True) -> List[Dict]:
     """
-    Sorts the list of operations dictionaries by the date.
+    Сортирует список операционных словарей по дате.
 
-    Args:
-        operations (List[Dict]): List of operation dictionaries.
-        descending (bool): Sort order. Default is True (descending).
+        operations (List[Dict]): Список операционных словарей.
+        descending (bool): порядок сортировки. По умолчанию - True (descending).
 
-    Returns:
-        List[Dict]: Sorted list of operation dictionaries.
+        List[Dict]: Сортированный список операционных словарей.
     """
     return sorted(operations, key=lambda x: datetime.fromisoformat(x['date']), reverse=descending)
+
+

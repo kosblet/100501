@@ -9,6 +9,7 @@
    git clone  
 Перейдите в директорию проекта:
 
+
 cd your_project
 Создайте и активируйте виртуальное окружение:
 
@@ -33,3 +34,5 @@ operations = [
 
 filtered = filter_by_state(operations, 'EXECUTED')
 sorted_operations = sort_by_date(operations)
+
+
