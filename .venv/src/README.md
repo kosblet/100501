@@ -9,9 +9,10 @@
    git clone  
 Перейдите в директорию проекта:
 
+
 cd your_project
 Создайте и активируйте виртуальное окружение:
-
+#
 python -m venv venv
 source venv/bin/activate  # На Windows используйте `venv\Scripts\activate`
 Установите зависимости:
