@@ -1,5 +1,5 @@
 from typing import Union
-
+#
 def get_mask_card_number(num_card: Union[int, str]) -> str:
     num_card = str(num_card)
     block_1 = num_card[0:4]
@@ -15,3 +15,4 @@ def get_mask_account(num_card: Union[int, str]) -> str:
     mask_account = num_card[:account_number_start] + "**" + num_card[-4:]
     return mask_account
 
+""

@@ -12,7 +12,7 @@
 
 cd your_project
 Создайте и активируйте виртуальное окружение:
-
+#
 python -m venv venv
 source venv/bin/activate  # На Windows используйте `venv\Scripts\activate`
 Установите зависимости:
@@ -34,5 +34,3 @@ operations = [
 
 filtered = filter_by_state(operations, 'EXECUTED')
 sorted_operations = sort_by_date(operations)
-
-

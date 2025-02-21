@@ -1,6 +1,6 @@
 import pytest
 from src.processing import filter_by_state, sort_by_date
-
+#
 test_data = [
     {"id": 41428829, "state": "EXECUTED", "date":
         "2019-07-03T18:35:29.512364"},
@@ -26,4 +26,3 @@ def test_filter_state(input_data, expected_result):
 
 def test_sort_by_date():
     assert sort_by_date(test_data) == test_data
-
